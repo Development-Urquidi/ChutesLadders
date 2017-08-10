@@ -1,12 +1,14 @@
 #Note: Get everything actually built first, then worry about error catches
 #User defined custom board sizes(board class)
 #Chute and ladder placement and length logic.
+#Die roller logic
 
-require_relative "playerClass.rb"
+require_relative 'player_class'
+require_relative 'board'
 
-puts "Hello, welcome to Chutes and Ladders! Please enter number of players, between 1 and 5"
+puts 'Hello, welcome to Chutes and Ladders! Please enter number of players, between 1 and 5'
 
-player.new.times= gets.chomp.to_i #Integer input for number of players
+Player.new.times= gets.chomp.to_i #Integer input for number of players
 
 each.Player.requestName
 
@@ -14,28 +16,15 @@ each.Player.requestName
 #Error catch for out-of-bounds integer input, loop until corrected
 #If players == 1, create computer player and logic (LATER)
 
-puts "Please confirm that you wish to play with #{players} players (y/n)"
-confirm = gets.chomp.downcase
-if confirm == y
-  confirm = true
-  #Done, move on
-elsif confirm == n
-  confirm == false
-  #Reenter number of players, loop back to confirmation.
-else
-  confirm = nil
-  puts "please answer with either [y] or [n]."
-  #Error catch for invalid input, loop until corrected
-end
+puts "Please confirm that you wish to play with #{Players.count} players (y/n)"
 
-
-puts "Please enter names for each player"
+puts 'Please enter names for each player'
 #Enter player names
 
-puts "Okay! We are ready to begin"
+puts 'Okay! We are ready to begin'
 
 def turn # player turn method:
- position = position + dieRoll# die roll method
+ Player.@position = Player.@position + Player.dieRoll# die roll method
 # apply die value to position
 # check for chute/ladder
 # check for win condition
