@@ -1,33 +1,118 @@
 class Board
 
-  def request_confirmation(message)
-    truthy_value = 'y'
-    falsy_value = 'n'
+  require_relative('player')
 
-    puts message + ' (y/n)'
+  attr_accessor :spot
 
-    confirmation = gets.chomp.downcase
+  def initialize(:spot)
+    spot = [1..100]
 
-    if truthy_value.include? confirmation
-      true
-    elsif falsy_value.include? confirmation
-      false
-    else
-      request_confirmation(message)
+    #chutes
+    if spot == 98
+      @position = 78
     end
+
+    if spot == 95
+      @position = 75
+    end
+
+    if spot == 93
+      @position = 73
+    end
+
+    if spot == 87
+      @position = 24
+    end
+
+    if spot == 62
+      @position = 19
+    end
+
+    if spot == 64
+      @position = 60
+    end
+
+    if spot == 56
+      @position = 53
+    end
+
+    if spot == 48
+      @position = 26
+    end
+
+    if spot == 49
+      @position = 11
+    end
+
+    if spot == 16
+      @position = 6
+    end
+
+    #ladders
+    if spot == 1
+      @position = 38
+    end
+
+    if spot == 4
+      @position = 14
+    end
+
+    if spot == 9
+      @position = 31
+    end
+
+    if spot == 21
+      @position = 42
+    end
+
+    if spot == 28
+      @position = 84
+    end
+
+    if spot == 36
+      @position = 44
+    end
+
+    if spot == 51
+      @position = 67
+    end
+
+    if spot == 71
+      @position = 91
+    end
+
+    if spot == 80
+      @position = 100
+    end
+
+    #wincon
+    if spot == 100
+      @win = true
+    end
+
+
+
+
   end
 
-  def request_player_count_confirmation
-    # Run request_confirmation method to check if the player is OK with the settings
-    #Cconfirmation = request_confirmation 'Are you sure you want this number of players?'
+=begin
 
-    # Run the start_game method if user is ready, otherwise let him specify different settings
-    #confirmation ? start_game : request_player_count
-  end
+      Gameboard
+      Chutes:  | Ladders:
+          98 => 78 | 1 => 38
+      95 => 75 | 4 => 14
+      93 => 73 | 9 => 31
+      87 => 24 | 21 => 42
+      62 => 19 | 28 => 84
+      64 => 60 | 36 => 44
+      56 => 53 | 51 => 67
+      48 => 26 | 71 => 91
+      49 => 11 | 80 => 100 (win condition)
+      16 => 6  |
 
-  #Confirmation method, since now were throwing it basically after every single user input...
-  #Board size logic
-  #User input total number of spaces
-  #Ladder and chute logic based on board size, repeated by board size/100
-  #Die size/quantity and logic
-end
+Board size logic
+User input total number of spaces
+Ladder and chute logic based on board size, repeated by board size/100
+Die size/quantity and logic
+
+=end
